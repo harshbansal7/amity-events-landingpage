@@ -1,4 +1,4 @@
-import { Calendar, PlusCircle, LogIn, UserPlus, ArrowRight, Linkedin, User, Mail, Globe } from 'lucide-react';
+import { Calendar, PlusCircle, LogIn, UserPlus, ArrowRight, Linkedin, User, Mail, Globe, Github } from 'lucide-react';
 
 function App() {
   return (
@@ -18,7 +18,7 @@ function App() {
             <span className="text-2xl font-bold tracking-tight">aup.events</span>
           </div>
           <div className="flex items-center space-x-4">
-            <button className="group px-6 py-3 text-indigo-600 bg-white rounded-xl font-semibold hover:bg-indigo-50 transition-all duration-200 shadow-lg shadow-indigo-500/20 hover:shadow-indigo-500/30">
+            <button onClick={() => window.location.href = 'https://app.aup.events/login'} className="group px-6 py-3 text-indigo-600 bg-white rounded-xl font-semibold hover:bg-indigo-50 transition-all duration-200 shadow-lg shadow-indigo-500/20 hover:shadow-indigo-500/30">
               <span className="flex items-center">
                 Login
                 <LogIn className="w-4 h-4 ml-2 group-hover:translate-x-0.5 transition-transform" />
@@ -27,7 +27,7 @@ function App() {
           </div>
         </nav>
 
-        <div className="relative container mx-auto px-6 py-32 sm:py-12 text-center">
+        <div className="relative container mx-auto px-6 py-12 md:py-28 text-center">
           <div className="absolute top-0 left-1/2 -translate-x-1/2 w-96 h-96 bg-indigo-500/20 rounded-full blur-3xl"></div>
           <h1 className="text-6xl font-bold mb-8 leading-tight">
             Your Gateway to<br />
@@ -39,20 +39,20 @@ function App() {
             Participate, host, and manage events seamlessly within the Amity University Punjab community
           </p>
           <div className="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-6">
-            <button className="group px-8 py-4 bg-white text-indigo-600 rounded-xl font-bold hover:bg-indigo-50 transition-all duration-200 shadow-lg shadow-indigo-500/20 hover:shadow-indigo-500/30">
+            <button onClick={() => window.location.href = 'https://app.aup.events/register'} className="group px-8 py-4 bg-white text-indigo-600 rounded-xl font-bold hover:bg-indigo-50 transition-all duration-200 shadow-lg shadow-indigo-500/20 hover:shadow-indigo-500/30">
               <span className="flex items-center justify-center">
                 Register Now
                 <UserPlus className="w-5 h-5 ml-2 group-hover:translate-x-0.5 transition-transform" />
               </span>
             </button>
-            <button className="group px-8 py-4 bg-indigo-500/20 backdrop-blur-sm text-white rounded-xl font-bold hover:bg-indigo-500/30 transition-all duration-200 border border-white/10">
+            <button onClick={() => window.location.href = 'https://app.aup.events/login'} className="group px-8 py-4 bg-indigo-500/20 backdrop-blur-sm text-white rounded-xl font-bold hover:bg-indigo-500/30 transition-all duration-200 border border-white/10">
               <span className="flex items-center justify-center">
                 Login
                 <LogIn className="w-5 h-5 ml-2 group-hover:translate-x-0.5 transition-transform" />
               </span>
             </button>
           </div>
-          <button className="mt-8 text-indigo-200 hover:text-white transition-colors flex items-center mx-auto group">
+          <button onClick={() => window.location.href = 'https://app.aup.events/external-register'} className="mt-8 text-indigo-200 hover:text-white transition-colors flex items-center mx-auto group">
             <span className="border-b border-indigo-200/30 group-hover:border-indigo-200">
               Register as External Participant
             </span>
@@ -287,10 +287,10 @@ function App() {
                   <span className="sr-only">LinkedIn</span>
                   <Linkedin className="h-5 w-5" />
                 </a>
-                {/* <a href="#" className="text-gray-400 hover:text-indigo-600">
+                <a href="https://github.com/harshbansal7" className="text-gray-400 hover:text-indigo-600">
                   <span className="sr-only">Instagram</span>
-                  <Instagram className="h-5 w-5" />
-                </a> */}
+                  <Github className="h-5 w-5" />
+                </a>
               </div>
             </div>
           </div>
