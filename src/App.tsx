@@ -237,19 +237,24 @@ function App() {
             {/* Quick Links */}
             <div>
               <h3 className="text-sm font-semibold text-gray-900 tracking-wider uppercase mb-4">
-                Quick Links
+                Contribute to AUP Events
               </h3>
               <ul className="space-y-2">
                 <li>
-                  <a href="https://harshmakes.tech/" className="text-sm text-gray-600 hover:text-indigo-600">
-                    About the Creator
+                  <a href="https://github.com/harshbansal7/amity-events-frontend" className="text-sm text-gray-600 hover:text-indigo-600">
+                    Frontend
                   </a>
                 </li>
                 <li>
+                  <a href="https://github.com/harshbansal7/amity-events-service" className="text-sm text-gray-600 hover:text-indigo-600">
+                    Backend
+                  </a>
+                </li>
+                {/* <li>
                   <a href="https://harshmakes.tech/contact" className="text-sm text-gray-600 hover:text-indigo-600">
                     Contact
                   </a>
-                </li>
+                </li> */}
                 {/* <li>
                   <a href="#" className="text-sm text-gray-600 hover:text-indigo-600">
                     Privacy Policy
