@@ -1,4 +1,25 @@
-import { Calendar, PlusCircle, LogIn, UserPlus, ArrowRight, Linkedin, User, Mail, Globe, Github } from 'lucide-react';
+import { Calendar, PlusCircle, LogIn, UserPlus, ArrowRight, Linkedin, User, Mail, Globe, Github, Bell, Filter, Award, BarChart, Users, QrCode } from 'lucide-react';
+import { useState, useEffect } from 'react';
+import featuresData from './data/features.json';
+
+const iconMap = {
+  Calendar: Calendar,
+  Bell: Bell,
+  Filter: Filter,
+  Award: Award,
+  BarChart: BarChart,
+  Users: Users,
+  QrCode: QrCode,
+  PlusCircle: PlusCircle,
+  UserPlus: UserPlus,
+  Linkedin: Linkedin,
+  User: User,
+  Mail: Mail,
+  Globe: Globe,
+  Github: Github,
+  LogIn: LogIn,
+  ArrowRight: ArrowRight
+};
 
 function App() {
   return (
@@ -94,6 +115,43 @@ function App() {
             <p className="text-gray-600 leading-relaxed">
               Create and manage your own events with ease
             </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Features Section */}
+      <section className="py-16 bg-gradient-to-br from-indigo-50 to-white relative overflow-hidden">
+        <div className="container mx-auto px-6">
+          <h2 className="text-4xl font-bold text-center mb-20 text-indigo-950">
+            Features
+          </h2>
+          
+          <div className="relative">
+            <div className="flex overflow-hidden">
+              <div className="flex animate-slide">
+                {[...featuresData.features, ...featuresData.features].map((feature, index) => {
+                  const Icon = iconMap[feature.icon as keyof typeof iconMap];
+                  return (
+                    <div
+                      key={`${feature.id}-${index}`}
+                      className="w-96 flex-shrink-0 mx-4"
+                    >
+                      <div className="bg-white p-8 rounded-2xl shadow-lg shadow-indigo-100/50 h-full">
+                        <div className="bg-gradient-to-br from-indigo-500 to-indigo-600 w-16 h-16 rounded-xl flex items-center justify-center mb-6 shadow-lg shadow-indigo-200/50">
+                          <Icon className="w-8 h-8 text-white" />
+                        </div>
+                        <h3 className="text-xl font-semibold mb-4 text-indigo-950">
+                          {feature.title}
+                        </h3>
+                        <p className="text-gray-600 leading-relaxed">
+                          {feature.description}
+                        </p>
+                      </div>
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -302,7 +360,7 @@ function App() {
 
           <div className="mt-8 pt-6 border-t border-gray-200">
             <p className="text-sm text-gray-500 text-center">
-              © {new Date().getFullYear()} Harsh Bansal. All rights reserved.
+              &copy; {new Date().getFullYear()} Harsh Bansal. All rights reserved.
             </p>
           </div>
         </div>

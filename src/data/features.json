@@ -1,0 +1,34 @@
+{
+  "features": [
+    {
+      "id": 1,
+      "title": "Event Creation & Management",
+      "description": "Create and manage events with ease. Set dates, venues, and track registrations all in one place.",
+      "icon": "Calendar"
+    },
+    {
+      "id": 2,
+      "title": "Manage Participant Attendance",
+      "description": "Effortlessly manage participant attendance and track attendance records, no need to manually get signatures.",
+      "icon": "Users"
+    },
+    {
+      "id": 3,
+      "title": "External Participation",
+      "description": "Allow students from other universities to participate in open events.",
+      "icon": "Users"
+    },
+    {
+      "id": 4,
+      "title": "One Click Reports",
+      "description": "Get detailed reports on event attendance and participant data in one click.",
+      "icon": "PlusCircle"
+    },
+    {
+      "id": 5,
+      "title": "No Approvals Required",
+      "description": "You don't need to be a Club to host events! Got an idea? Host it online and get audience through us.",
+      "icon": "User"
+    }
+  ]
+}
