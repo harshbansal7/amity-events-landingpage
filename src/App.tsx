@@ -203,7 +203,7 @@ function App() {
                 </div>
                 <div>
                   <h4 className="text-lg font-semibold text-gray-900">Jungbir Singh Hanspal</h4>
-                  <p className="text-gray-600 text-sm">Tester</p>
+                  <p className="text-gray-600 text-sm">Contributor</p>
                   <p className="text-indigo-600 text-sm">jungbirhanspal@gmail.com</p>
                 </div>
               </div>
@@ -219,7 +219,7 @@ function App() {
                 </div>
                 <div>
                   <h4 className="text-lg font-semibold text-gray-900">Shivansh Pathak</h4>
-                  <p className="text-gray-600 text-sm">Tester</p>
+                  <p className="text-gray-600 text-sm">Contributor</p>
                   <p className="text-indigo-600 text-sm">shivansh.pathak777@gmail.com</p>
                 </div>
               </div>
@@ -235,7 +235,7 @@ function App() {
                 </div>
                 <div>
                   <h4 className="text-lg font-semibold text-gray-900">Vikhyat Gupta</h4>
-                  <p className="text-gray-600 text-sm">Tester</p>
+                  <p className="text-gray-600 text-sm">Contributor</p>
                   <p className="text-indigo-600 text-sm">vikhyatgupta61@gmail.com</p>
                 </div>
               </div>
@@ -251,7 +251,7 @@ function App() {
                 </div>
                 <div>
                   <h4 className="text-lg font-semibold text-gray-900">Tushar Yadav</h4>
-                  <p className="text-gray-600 text-sm">Tester</p>
+                  <p className="text-gray-600 text-sm">Contributor</p>
                   <p className="text-indigo-600 text-sm">tushar.yadav16@gmail.com</p>
                 </div>
               </div>
@@ -267,7 +267,7 @@ function App() {
                 </div>
                 <div>
                   <h4 className="text-lg font-semibold text-gray-900">Chirag Gulati</h4>
-                  <p className="text-gray-600 text-sm">Tester</p>
+                  <p className="text-gray-600 text-sm">Contributor</p>
                   <p className="text-indigo-600 text-sm">chiraggulati098@gmail.com</p>
                 </div>
               </div>
@@ -282,7 +282,7 @@ function App() {
                 </div>
                 <div>
                   <h4 className="text-lg font-semibold text-gray-900">Rudra Pratap Singh</h4>
-                  <p className="text-gray-600 text-sm">Tester</p>
+                  <p className="text-gray-600 text-sm">Contributor</p>
                   <p className="text-indigo-600 text-sm">rudra17122005@gmail.com</p>
                 </div>
               </div>
