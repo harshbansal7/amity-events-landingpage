@@ -1,4 +1,4 @@
-import { Calendar, PlusCircle, LogIn, UserPlus, ArrowRight, Linkedin, User, Mail, Globe, Github, Bell, Filter, Award, BarChart, Users, QrCode } from 'lucide-react';
+import { Calendar, PlusCircle, LogIn, UserPlus, ArrowRight, Linkedin, User, Mail, Globe, Github, Bell, Filter, Award, BarChart, Users, QrCode, Quote } from 'lucide-react';
 import { useState, useEffect } from 'react';
 import featuresData from './data/features.json';
 
@@ -21,7 +21,72 @@ const iconMap = {
   ArrowRight: ArrowRight
 };
 
+// Testimonials data
+const testimonials = [
+  {
+    id: 1,
+    name: "Aarav Sharma",
+    quote: "AUP Events has completely transformed how our club manages events. The platform is intuitive and makes registration tracking so much easier!",
+    role: "BTech CSE, 3rd Year",
+    club: "Tech Club"
+  },
+  {
+    id: 2,
+    name: "Priya Patel",
+    quote: "As a student who loves participating in campus activities, this platform has been a game-changer. I never miss any events now!",
+    role: "BBA, 2nd Year",
+    club: "Management Society"
+  },
+  // {
+  //   id: 3,
+  //   name: "Rohit Verma",
+  //   quote: "The QR code attendance feature saves us so much time during large events. Our cultural fest coordination has improved tremendously.",
+  //   role: "B.Arch, 4th Year",
+  //   club: "Cultural Committee"
+  // },
+  // {
+  //   id: 4,
+  //   name: "Ananya Gupta",
+  //   quote: "We've seen a 40% increase in attendance since we started using AUP Events for our workshops. The platform's reach is excellent!",
+  //   role: "MSc Biotechnology, 1st Year",
+  //   club: "Science Club"
+  // },
+  // {
+  //   id: 5,
+  //   name: "Vikram Singh",
+  //   quote: "The analytics feature helps us understand what kind of events students prefer. It's been invaluable for our event planning strategy.",
+  //   role: "BTech ECE, 3rd Year",
+  //   club: "IEEE Student Branch"
+  // }
+];
+
 function App() {
+  // Add auto-scroll functionality for testimonials
+  const [activeTestimonialIndex, setActiveTestimonialIndex] = useState(0);
+  // Track active feature for the interactive showcase
+  const [activeFeatureIndex, setActiveFeatureIndex] = useState(0);
+  
+  // Auto-scroll testimonials every 5 seconds
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setActiveTestimonialIndex(prevIndex => 
+        prevIndex === testimonials.length - 1 ? 0 : prevIndex + 1
+      );
+    }, 5000);
+    
+    return () => clearInterval(interval);
+  }, []);
+  
+  // Manually change testimonial
+  const goToTestimonial = (index: number) => {
+    setActiveTestimonialIndex(index);
+  };
+
+  // Change active feature
+  const setActiveFeature = (index: number) => {
+    setActiveFeatureIndex(index);
+  };
+
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
@@ -82,68 +147,49 @@ function App() {
         </div>
       </header>
 
-      {/* How It Works Section */}
-      <section className="py-16 container mx-auto px-6 relative overflow-hidden">
-        <div className="absolute top-0 right-0 w-96 h-96 bg-indigo-100 rounded-full blur-3xl -z-10 opacity-70"></div>
-        <h2 className="text-4xl font-bold text-center mb-20 text-indigo-950">
-            What you can do!
-        </h2>
-        <div className="grid md:grid-cols-3 gap-12">
-          <div className="group p-8 rounded-2xl transition-all duration-300 hover:bg-white hover:shadow-xl hover:shadow-indigo-100/50">
-            <div className="bg-gradient-to-br from-indigo-500 to-indigo-600 w-16 h-16 rounded-xl flex items-center justify-center mx-auto mb-8 shadow-lg shadow-indigo-200/50 group-hover:scale-110 transition-transform duration-300">
-              <UserPlus className="w-8 h-8 text-white" />
-            </div>
-            <h3 className="text-xl font-semibold mb-4 text-indigo-950">Register</h3>
-            <p className="text-gray-600 leading-relaxed">
-              Sign up with your university credentials to access all features
-            </p>
-          </div>
-          <div className="group p-8 rounded-2xl transition-all duration-300 hover:bg-white hover:shadow-xl hover:shadow-indigo-100/50">
-            <div className="bg-gradient-to-br from-indigo-500 to-indigo-600 w-16 h-16 rounded-xl flex items-center justify-center mx-auto mb-8 shadow-lg shadow-indigo-200/50 group-hover:scale-110 transition-transform duration-300">
-              <Calendar className="w-8 h-8 text-white" />
-            </div>
-            <h3 className="text-xl font-semibold mb-4 text-indigo-950">Browse Events</h3>
-            <p className="text-gray-600 leading-relaxed">
-              Discover and participate in various university events
-            </p>
-          </div>
-          <div className="group p-8 rounded-2xl transition-all duration-300 hover:bg-white hover:shadow-xl hover:shadow-indigo-100/50">
-            <div className="bg-gradient-to-br from-indigo-500 to-indigo-600 w-16 h-16 rounded-xl flex items-center justify-center mx-auto mb-8 shadow-lg shadow-indigo-200/50 group-hover:scale-110 transition-transform duration-300">
-              <PlusCircle className="w-8 h-8 text-white" />
-            </div>
-            <h3 className="text-xl font-semibold mb-4 text-indigo-950">Host Events</h3>
-            <p className="text-gray-600 leading-relaxed">
-              Create and manage your own events with ease
-            </p>
-          </div>
-        </div>
-      </section>
-
-      {/* Features Section */}
-      <section className="py-16 bg-gradient-to-br from-indigo-50 to-white relative overflow-hidden">
+      {/* Combined Feature Showcase Section - Redesigned */}
+      <section className="py-20 relative overflow-hidden">
+        {/* Background elements */}
+        <div className="absolute top-40 left-0 w-64 h-64 bg-indigo-100 rounded-full blur-3xl -z-10 opacity-60"></div>
+        <div className="absolute bottom-20 right-0 w-80 h-80 bg-purple-100 rounded-full blur-3xl -z-10 opacity-60"></div>
+        <div className="absolute top-1/2 left-1/3 w-40 h-40 bg-blue-100 rounded-full blur-3xl -z-10 opacity-40"></div>
+        
         <div className="container mx-auto px-6">
-          <h2 className="text-4xl font-bold text-center mb-20 text-indigo-950">
-            Features
-          </h2>
+          <div className="text-center mb-12">
+            <span className="px-4 py-1 bg-indigo-100 text-indigo-700 rounded-full text-sm font-medium inline-block mb-3">Features</span>
+            <h2 className="text-4xl md:text-5xl font-bold text-indigo-950 mb-4">Power Up Your Campus Experience</h2>
+            <p className="text-gray-600 max-w-2xl mx-auto">Everything you need to discover, participate in, and create memorable events at Amity University</p>
+          </div>
           
-          <div className="relative">
-            <div className="flex overflow-hidden">
-              <div className="flex animate-slide">
-                {[...featuresData.features, ...featuresData.features].map((feature, index) => {
+          {/* Interactive Feature Showcase */}
+          <div className="grid lg:grid-cols-5 gap-8 mt-16">
+            {/* Feature Navigation */}
+            <div className="lg:col-span-2 order-2 lg:order-1">
+              <div className="space-y-4">
+                {featuresData.features.map((feature, index) => {
                   const Icon = iconMap[feature.icon as keyof typeof iconMap];
                   return (
-                    <div
-                      key={`${feature.id}-${index}`}
-                      className="w-96 flex-shrink-0 mx-4"
+                    <div 
+                      key={feature.id}
+                      onClick={() => setActiveFeature(index)}
+                      className={`p-5 rounded-2xl cursor-pointer transition-all duration-300 flex items-center gap-4 ${
+                        activeFeatureIndex === index 
+                          ? 'bg-gradient-to-r from-indigo-50 to-white shadow-lg border-l-4 border-indigo-600' 
+                          : 'hover:bg-indigo-50/50'
+                      }`}
                     >
-                      <div className="bg-white p-8 rounded-2xl shadow-lg shadow-indigo-100/50 h-full">
-                        <div className="bg-gradient-to-br from-indigo-500 to-indigo-600 w-16 h-16 rounded-xl flex items-center justify-center mb-6 shadow-lg shadow-indigo-200/50">
-                          <Icon className="w-8 h-8 text-white" />
-                        </div>
-                        <h3 className="text-xl font-semibold mb-4 text-indigo-950">
+                      <div className={`${
+                        activeFeatureIndex === index 
+                          ? 'bg-gradient-to-br from-indigo-600 to-indigo-700' 
+                          : 'bg-indigo-100'
+                        } w-12 h-12 rounded-xl flex items-center justify-center transition-all duration-300`}>
+                        <Icon className={`w-6 h-6 ${activeFeatureIndex === index ? 'text-white' : 'text-indigo-600'}`} />
+                      </div>
+                      <div>
+                        <h3 className={`font-semibold mb-1 ${activeFeatureIndex === index ? 'text-indigo-800' : 'text-gray-800'}`}>
                           {feature.title}
                         </h3>
-                        <p className="text-gray-600 leading-relaxed">
+                        <p className={`text-sm ${activeFeatureIndex === index ? 'text-indigo-700' : 'text-gray-600'}`}>
                           {feature.description}
                         </p>
                       </div>
@@ -152,10 +198,136 @@ function App() {
                 })}
               </div>
             </div>
+            
+            {/* Feature Visualization */}
+            <div className="lg:col-span-3 order-1 lg:order-2 bg-white rounded-3xl shadow-2xl shadow-indigo-100/70 overflow-hidden relative">
+              {/* Dynamic Feature Illustration */}
+              <div className="relative h-60 bg-gradient-to-br from-indigo-600 to-indigo-800 p-8 overflow-hidden">
+                {/* Abstract shapes */}
+                <div className="absolute top-0 right-0 w-40 h-40 bg-white/10 rounded-full transform translate-x-16 -translate-y-16"></div>
+                <div className="absolute bottom-0 left-0 w-32 h-32 bg-white/10 rounded-full transform -translate-x-16 translate-y-16"></div>
+                
+                <div className="absolute inset-0 flex items-center justify-center">
+                  {/* Feature-specific illustrations */}
+                  {activeFeatureIndex === 0 && (
+                    <div className="text-center">
+                      <Calendar className="w-24 h-24 text-white/90 mx-auto mb-6" strokeWidth={1.5} />
+                      <h3 className="text-2xl font-bold text-white mb-2">Create & Manage Events</h3>
+                      <p className="text-indigo-100 max-w-xs mx-auto">Your one-stop solution for organizing campus activities</p>
+                    </div>
+                  )}
+                  
+                  {activeFeatureIndex === 1 && (
+                    <div className="text-center">
+                      <Users className="w-24 h-24 text-white/90 mx-auto mb-6" strokeWidth={1.5} />
+                      <h3 className="text-2xl font-bold text-white mb-2">Effortless Attendance</h3>
+                      <p className="text-indigo-100 max-w-xs mx-auto">Track participation with digital check-ins</p>
+                    </div>
+                  )}
+                  
+                  {activeFeatureIndex === 2 && (
+                    <div className="text-center">
+                      <Users className="w-24 h-24 text-white/90 mx-auto mb-6" strokeWidth={1.5} />
+                      <h3 className="text-2xl font-bold text-white mb-2">Open Participation</h3>
+                      <p className="text-indigo-100 max-w-xs mx-auto">Welcome participants from other institutions</p>
+                    </div>
+                  )}
+                  
+                  {activeFeatureIndex === 3 && (
+                    <div className="text-center">
+                      <PlusCircle className="w-24 h-24 text-white/90 mx-auto mb-6" strokeWidth={1.5} />
+                      <h3 className="text-2xl font-bold text-white mb-2">Instant Reports</h3>
+                      <p className="text-indigo-100 max-w-xs mx-auto">Generate comprehensive event analytics</p>
+                    </div>
+                  )}
+                  
+                  {activeFeatureIndex === 4 && (
+                    <div className="text-center">
+                      <User className="w-24 h-24 text-white/90 mx-auto mb-6" strokeWidth={1.5} />
+                      <h3 className="text-2xl font-bold text-white mb-2">Host Without Limits</h3>
+                      <p className="text-indigo-100 max-w-xs mx-auto">Anyone can organize events, no university level approvals needed</p>
+                    </div>
+                  )}
+                </div>
+              </div>
+              
+              {/* User Journey Steps - Replacing the numbers section */}
+              <div className="p-6">
+                <h4 className="text-lg font-bold text-gray-900 mb-4">Getting Started is Simple</h4>
+                <div className="space-y-3">
+                  <div className="flex items-center gap-4 group">
+                    <div className="bg-indigo-100 text-indigo-700 font-bold w-8 h-8 rounded-full flex items-center justify-center group-hover:bg-indigo-600 group-hover:text-white transition-colors">1</div>
+                    <div className="flex-1 bg-indigo-50 group-hover:bg-indigo-100 rounded-lg p-3 transition-colors">
+                      <p className="font-medium text-indigo-900">Sign up with your university email</p>
+                    </div>
+                  </div>
+                  
+                  <div className="flex items-center gap-4 group">
+                    <div className="bg-purple-100 text-purple-700 font-bold w-8 h-8 rounded-full flex items-center justify-center group-hover:bg-purple-600 group-hover:text-white transition-colors">2</div>
+                    <div className="flex-1 bg-purple-50 group-hover:bg-purple-100 rounded-lg p-3 transition-colors">
+                      <p className="font-medium text-purple-900">Explore upcoming events or create your own</p>
+                    </div>
+                  </div>
+                  
+                  <div className="flex items-center gap-4 group">
+                    <div className="bg-blue-100 text-blue-700 font-bold w-8 h-8 rounded-full flex items-center justify-center group-hover:bg-blue-600 group-hover:text-white transition-colors">3</div>
+                    <div className="flex-1 bg-blue-50 group-hover:bg-blue-100 rounded-lg p-3 transition-colors">
+                      <p className="font-medium text-blue-900">Connect with your campus community</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
+              {/* Enhanced CTA */}
+              <div className="px-6 pb-6">
+                <div className="bg-gradient-to-r from-indigo-50 to-indigo-100 rounded-xl p-4">
+                  <div className="flex items-center justify-between">
+                    <div>
+                      <h4 className="font-semibold text-indigo-900 mb-1">Ready to start?</h4>
+                      <p className="text-sm text-indigo-700">Join your peers on AUP Events</p>
+                    </div>
+                    <a href="https://app.aup.events/register" className="bg-gradient-to-r from-indigo-600 to-indigo-700 hover:from-indigo-700 hover:to-indigo-800 text-white px-6 py-3 rounded-xl font-semibold transition-all duration-300 shadow-lg shadow-indigo-200 hover:shadow-xl hover:shadow-indigo-300 flex items-center">
+                      Get Started
+                      <ArrowRight className="w-5 h-5 ml-2" />
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          {/* Mobile App Teaser */}
+          <div className="mt-20 bg-gradient-to-r from-indigo-50 to-purple-50 rounded-3xl p-8 md:p-12 relative overflow-hidden">
+            <div className="absolute -right-16 -bottom-16 w-64 h-64 bg-indigo-100 rounded-full opacity-70"></div>
+            <div className="absolute -left-16 -top-16 w-48 h-48 bg-purple-100 rounded-full opacity-70"></div>
+            
+            <div className="relative z-10 flex flex-col md:flex-row items-center justify-between">
+              <div className="md:w-1/2 mb-8 md:mb-0">
+                <h3 className="text-2xl md:text-3xl font-bold text-indigo-900 mb-4">Ready for an easier campus life?</h3>
+                <p className="text-indigo-700 mb-6">Join hundreds of students already using our platform to enhance their university events experience!</p>
+                <div className="flex space-x-4">
+                  <button onClick={() => window.location.href = 'https://app.aup.events/register'} className="px-6 py-3 bg-indigo-600 text-white rounded-xl font-semibold hover:bg-indigo-700 transition-colors">
+                    Get Started
+                  </button>
+                  <button onClick={() => window.location.href = 'https://app.aup.events/login'} className="px-6 py-3 bg-white text-indigo-600 border border-indigo-200 rounded-xl font-semibold hover:bg-indigo-50 transition-colors">
+                    Sign In
+                  </button>
+                </div>
+              </div>
+              
+              <div className="md:w-1/3">
+                <div className="bg-white p-3 rounded-3xl shadow-xl rotate-3 transform hover:rotate-0 transition-all duration-300">
+                  <img src="https://app.aup.events/assets/meta-image.jpeg" alt="Amity Events App" className="rounded-2xl" />
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
-
+    
+      
+      {/* TESTIMONIAL SECTION */}
+      
       {/* Contributors Section */}
       <section className="py-16 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
