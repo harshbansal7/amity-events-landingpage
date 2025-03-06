@@ -25,17 +25,17 @@ const iconMap = {
 const testimonials = [
   {
     id: 1,
-    name: "Aarav Sharma",
-    quote: "AUP Events has completely transformed how our club manages events. The platform is intuitive and makes registration tracking so much easier!",
+    name: "Chirag Gulati",
+    quote: "AUP Events has made managing events in Amity Punjab effortless! It provides us a hassle free experience, all the way from Registration to Attendance and Reports. Highly recommended!",
     role: "BTech CSE, 3rd Year",
-    club: "Tech Club"
+    club: "Technometer Club, AUP"
   },
   {
     id: 2,
-    name: "Priya Patel",
-    quote: "As a student who loves participating in campus activities, this platform has been a game-changer. I never miss any events now!",
-    role: "BBA, 2nd Year",
-    club: "Management Society"
+    name: "Yashika Arora",
+    quote: "When I got to know about this I was very happy because its a very unique step and opportunity for us towards organising events and participating in them. It's a great initiative.",
+    role: "B.Sc Animation Game Design, 2nd Year",
+    club: "Nritya Dance Club, AUP"
   },
   // {
   //   id: 3,
@@ -327,7 +327,111 @@ function App() {
     
       
       {/* TESTIMONIAL SECTION */}
-      
+            {/* Testimonials Section */}
+            <section className="py-16 relative overflow-hidden bg-gradient-to-br from-indigo-50 via-white to-indigo-50">
+        <div className="absolute top-0 left-0 w-96 h-96 bg-indigo-100 rounded-full blur-3xl -z-10 opacity-70"></div>
+        <div className="absolute bottom-0 right-0 w-96 h-96 bg-indigo-200 rounded-full blur-3xl -z-10 opacity-70"></div>
+        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-purple-100 rounded-full blur-3xl -z-10 opacity-30"></div>
+        
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <span className="px-4 py-1 bg-indigo-100 text-indigo-700 rounded-full text-sm font-medium inline-block mb-3">TESTIMONIALS</span>
+            <h2 className="text-3xl font-bold text-gray-900 mb-4">What Our Users Say</h2>
+            <p className="text-gray-600 max-w-2xl mx-auto">Hear from students and club representatives who use AUP Events platform</p>
+          </div>
+          
+          {/* Testimonials Carousel */}
+          <div className="relative max-w-4xl mx-auto">
+            <div className="overflow-hidden">
+              <div 
+                className="flex transition-transform duration-500 ease-in-out"
+                style={{ transform: `translateX(-${activeTestimonialIndex * 100}%)` }}
+              >
+                {testimonials.map((testimonial, idx) => (
+                  <div key={testimonial.id} className="min-w-full px-4">
+                    <div className={`bg-gradient-to-br ${
+                      idx % 3 === 0 ? 'from-indigo-50 to-white' : 
+                      idx % 3 === 1 ? 'from-purple-50 to-white' : 
+                      'from-blue-50 to-white'
+                    } rounded-2xl p-8 shadow-lg border border-indigo-100 relative overflow-hidden`}>
+                      
+                      {/* Decorative elements */}
+                      <div className="absolute -top-10 -right-10 w-20 h-20 bg-indigo-100 rounded-full opacity-50"></div>
+                      <div className="absolute -bottom-10 -left-10 w-16 h-16 bg-purple-100 rounded-full opacity-50"></div>
+                      
+                      <div className="flex justify-center mb-6">
+                        <div className={`${
+                          idx % 3 === 0 ? 'bg-indigo-600' : 
+                          idx % 3 === 1 ? 'bg-purple-600' : 
+                          'bg-blue-600'
+                        } p-3 rounded-full`}>
+                          <Quote className="w-6 h-6 text-white" />
+                        </div>
+                      </div>
+                      <blockquote className="text-xl font-medium text-gray-800 text-center mb-6">
+                        "{testimonial.quote}"
+                      </blockquote>
+                      <div className="flex flex-col items-center">
+                        <div className={`w-16 h-16 ${
+                          idx % 3 === 0 ? 'bg-gradient-to-br from-indigo-500 to-indigo-600' : 
+                          idx % 3 === 1 ? 'bg-gradient-to-br from-purple-500 to-purple-600' : 
+                          'bg-gradient-to-br from-blue-500 to-blue-600'
+                        } rounded-full flex items-center justify-center mb-3 text-white font-bold text-xl`}>
+                          {testimonial.name.split(' ').map(name => name[0]).join('')}
+                        </div>
+                        <h4 className="text-lg font-semibold text-gray-900">{testimonial.name}</h4>
+                        <p className={`${
+                          idx % 3 === 0 ? 'text-indigo-600' : 
+                          idx % 3 === 1 ? 'text-purple-600' : 
+                          'text-blue-600'
+                        }`}>{testimonial.role}</p>
+                        <div className={`mt-2 px-3 py-1 text-sm rounded-full ${
+                          idx % 3 === 0 ? 'bg-indigo-100 text-indigo-800' : 
+                          idx % 3 === 1 ? 'bg-purple-100 text-purple-800' : 
+                          'bg-blue-100 text-blue-800'
+                        }`}>
+                          {testimonial.club}
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+            
+            {/* Carousel Navigation */}
+            <div className="flex justify-center items-center mt-8 space-x-2">
+              <button 
+                onClick={() => goToTestimonial(activeTestimonialIndex === 0 ? testimonials.length - 1 : activeTestimonialIndex - 1)}
+                className="w-10 h-10 rounded-full flex items-center justify-center bg-white border border-indigo-100 hover:border-indigo-300 transition-colors"
+                aria-label="Previous testimonial"
+              >
+                <ArrowRight className="w-4 h-4 text-indigo-600 transform rotate-180" />
+              </button>
+              
+              {testimonials.map((_, index) => (
+                <button
+                  key={index}
+                  onClick={() => goToTestimonial(index)}
+                  className={`w-3 h-3 rounded-full transition-colors duration-300 ${
+                    index === activeTestimonialIndex ? 'bg-indigo-600' : 'bg-indigo-200'
+                  }`}
+                  aria-label={`Go to testimonial ${index + 1}`}
+                />
+              ))}
+              
+              <button 
+                onClick={() => goToTestimonial(activeTestimonialIndex === testimonials.length - 1 ? 0 : activeTestimonialIndex + 1)}
+                className="w-10 h-10 rounded-full flex items-center justify-center bg-white border border-indigo-100 hover:border-indigo-300 transition-colors"
+                aria-label="Next testimonial"
+              >
+                <ArrowRight className="w-4 h-4 text-indigo-600" />
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Contributors Section */}
       <section className="py-16 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
