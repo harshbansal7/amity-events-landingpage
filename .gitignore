@@ -22,3 +22,9 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# ESLint
+.eslintcache
+.eslint.cache
+.eslintrc.local.json
+.eslintrc.local.js

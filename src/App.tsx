@@ -37,13 +37,13 @@ const testimonials = [
     role: "B.Sc Animation Game Design, 2nd Year",
     club: "Nritya Dance Club, AUP"
   },
-  // {
-  //   id: 3,
-  //   name: "Rohit Verma",
-  //   quote: "The QR code attendance feature saves us so much time during large events. Our cultural fest coordination has improved tremendously.",
-  //   role: "B.Arch, 4th Year",
-  //   club: "Cultural Committee"
-  // },
+  {
+    id: 3,
+    name: "Aarush Guha Chaudhuri",
+    quote: "I used the site to host an event. Making and hosting the event was leaps and bounds better than using Google forms. From taking attendance of the participants to easily monitoring participation it's an absolute joy to use!!!",
+    role: "B.Com. (Hons.), 2nd Year",
+    club: "Technometer Club, AUP"
+  }
   // {
   //   id: 4,
   //   name: "Ananya Gupta",
