@@ -633,7 +633,7 @@ function App() {
               <div className="relative w-32 h-32 mx-auto mb-4">
                 <div className="absolute inset-0 bg-indigo-100 rounded-full -rotate-6"></div>
                 <img
-                  src="src/creator_img.jpeg"
+                  src="https://res.cloudinary.com/diwvz2qok/image/upload/v1747323657/yz5k2hugvwtbylmg6pf5.jpg"
                   alt="Harsh Bansal"
                   className="relative w-full h-full object-cover rounded-full border-4 border-white shadow-lg"
                 />
